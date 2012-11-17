@@ -93,21 +93,71 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+html {}
+   
 body {
-	background-color: #0033CC;
+	color: white;
+	font: normal normal 24px/32px "nereknu-mono-light", monospace;
+	overflow: hidden;
+}
+
+.page {
+	height: 100%;
+	position: absolute; top: 0; left: 0;
+	width:100%;
+	z-index: 1;
 }
 
 
+.content {padding: 50px;}
+
+
+#intro {
+	background-color: #0033CC;
+}
+
+#projects {
+	background-color: black;
+	left: -100%;
+	z-index: 2;
+}
+
+#contact {
+	background-color: white;
+	color: #333;
+	top: 100%;
+	z-index: 2;
+}
+
+
+	#intro .content  {
+		color: white;
+		padding: 0;
+		position: absolute; top: 50%; left: 50%;
+		height: 300px;
+		margin: -150px 0 0 -15%;
+		text-align: center;
+		width: 30%;
+	}
+	
+	#projects ul {list-style: none; padding: 0; margin: 0;}
+	#projects li {font-size: 40px;}
+	#projects li.first {} 
+	#projects a {color: white;}
+	
+	#contact p {font-size: 40px;}
+	
+.menu-link {position: absolute; text-transform: uppercase; color: white; z-index: 3;}
+.menu-link.clients {top:50px; left: 50px;}
+.menu-link.blog {top:50px; right: 50px;}
+.menu-link.contact {bottom: 50px; right: 50px;}
+
+.menu-link.back {top:50px; right: 50px;}
 
 
 
-
-
-
-
-
-
-
+body.contact,
+body.contact a {	color: #333;}
 
 
 

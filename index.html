@@ -13,6 +13,7 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/fonts.css">
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
@@ -20,21 +21,154 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
+		
+		<div class="main">
+			
+			<a href="#" class="menu-link clients">CLIENTS</a>
+			<a href="http://lbbbbb.tumblr.com/" class="menu-link blog">BLOG</a>
+			<a href="#" class="menu-link contact">CONTACT</a>
+			
+			<a href="#" class="menu-link back hidden">BACK</a>
+			
+			<div id="intro" class="page">
 
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+				<section>
+					<h1 class="visuallyhidden">Introduction</h1>
+					<div class="content">
+					<!-- Add your site or application content here -->
+					<p>
+						ahoj! i am jakub<br>currently studying <br>
+						at charles university in prague<br>
+						i <u>contemplate</u>, <u>design</u>, <u>code</u> <br>& drink green tea
+					</p>
+					</div>
+				</section>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+			</div>
+			
+			<div id="projects" class="page">
+				
+				<section>
+					<h1 class="visuallyhidden">Clients</h1>				
+				
+					<div class="content">
+					
+						<ul>
+							<li>Reader's Digest
+							<li>htmlfactory.cz
+							<li>VIZIONET.CZ
+							<li>VIZUS.CZ
+							<li>Radek Medal
+							<li>Jan-Fiala.cz					
+							
+						</ul>
+					
+					</div>
+				
+				</section>
+				
+			</div>
+			
+			<div id="contact" class="page">
+				
+				<section>
+					<h1 class="visuallyhidden">Contact</h1>					
+				
+					<div class="content">
+					
+						<p>jakubferenc(at)me.com</p>
+					
+					</div>
+				
+				</section>
+				
+			</div>			
+			
+		</div>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
+		
+		<script src="js/vendor/jquery-1.8.2.min.js"></script>
+		
+
+		
+		<script>
+		$(".menu-link.clients").click(function() {
+			
+			$(".menu-link").addClass("hidden");
+			
+			$('#intro').animate({
+				left: '+=100%',
+			  }, 1000, function() {
+				$("body").addClass("clients");
+			});
+			
+			$('#projects').animate({
+				left: '0',
+			  }, 1000, function() {
+				$(".menu-link.back").removeClass("hidden");
+			});			
+		
+		});
+		
+		$(".menu-link.contact").click(function() {
+			
+			$(".menu-link").addClass("hidden");
+			
+			$('#intro').animate({
+				top: '-=100%',
+			  }, 1000, function() {
+				$("body").addClass("contact");
+			});
+			
+			$('#contact').animate({
+				top: '0',
+			  }, 1000, function() {
+				$(".menu-link.back").removeClass("hidden");
+			});			
+		
+		});		
+		
+		$(".menu-link.back").click(function() {
+			
+			
+			$(".menu-link.back").addClass("hidden");
+			
+			if ($("body").hasClass("clients")) {
+
+				$('#intro').animate({
+					left: '-=100%',
+				  }, 1000, function() {
+					$("body").attr("class", "");
+					$(".menu-link").not(".menu-link.back").removeClass("hidden");
+				});
+				
+				$('#projects').animate({
+					left: '-=100%',
+				  }, 1000, function() {
+
+				});					
+			
+			}
+			
+			if ($("body").hasClass("contact")) {
+
+				$('#intro').animate({
+					top: '0',
+				  }, 1000, function() {
+					$("body").attr("class", "");
+					$(".menu-link").not(".menu-link.back").removeClass("hidden");
+				});
+				
+				$('#contact').animate({
+					top: '+=100%',
+				  }, 1000, function() {
+
+				});					
+			
+			}			
+		
+		});
+		</script>
+		
     </body>
 </html>
