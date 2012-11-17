@@ -93,80 +93,84 @@
 		
 		<script>
 		$(".menu-link.clients").click(function() {
-			
+
+			$('#intro').css("z-index", "1");
 			$(".menu-link").addClass("hidden");
 			
 			$('#intro').animate({
 				left: '+=100%',
-			  }, 1000, function() {
-				$("body").addClass("clients");
-			});
+			  }, 2000);
 			
 			$('#projects').animate({
 				left: '0',
 			  }, 1000, function() {
 				$(".menu-link.back").removeClass("hidden");
-			});			
-		
+				$('#intro').stop().css("left", "100%");
+				$("body").addClass("clients");
+			});	
+
 		});
 		
 		$(".menu-link.contact").click(function() {
-			
+
+			$('#intro').css("z-index", "1");
 			$(".menu-link").addClass("hidden");
 			
 			$('#intro').animate({
 				top: '-=100%',
-			  }, 1000, function() {
-				$("body").addClass("contact");
-			});
+			  }, 2000);
 			
 			$('#contact').animate({
 				top: '0',
 			  }, 1000, function() {
 				$(".menu-link.back").removeClass("hidden");
-			});			
-		
+				$('#intro').stop().css("top", "-100%");			
+				$("body").addClass("contact");					
+			});	
+
 		});		
 		
 		$(".menu-link.back").click(function() {
-			
-			
+
+			$('#intro').css("z-index", "2");
 			$(".menu-link.back").addClass("hidden");
 			
 			if ($("body").hasClass("clients")) {
-
+				
+				$('#projects').css("z-index", "1");
+				
 				$('#intro').animate({
 					left: '-=100%',
 				  }, 1000, function() {
 					$("body").attr("class", "");
 					$(".menu-link").not(".menu-link.back").removeClass("hidden");
+					$('#projects').stop().css("left", "-100%");
 				});
 				
 				$('#projects').animate({
 					left: '-=100%',
-				  }, 1000, function() {
-
-				});					
+				  }, 2000);					
 			
 			}
 			
 			if ($("body").hasClass("contact")) {
-
+				
+				$('#contact').css("z-index", "1");
+				
 				$('#intro').animate({
 					top: '0',
 				  }, 1000, function() {
 					$("body").attr("class", "");
 					$(".menu-link").not(".menu-link.back").removeClass("hidden");
+					$('#contact').stop().css("top", "100%");
 				});
 				
 				$('#contact').animate({
 					top: '+=100%',
-				  }, 1000, function() {
-
-				});					
+				  }, 2000);					
 			
 			}			
-		
+
 		});
 		</script>
 		
